@@ -9,9 +9,9 @@ public class LambdaTest {
 
     public static void main(String[] args) {
         testReduce();
-        //testCollect();
-        //testMap();
-        //testFilter1();
+        testCollect();
+        testMap();
+        testFilter1();
     }
 
     private static void testReduce() {
