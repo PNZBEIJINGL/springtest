@@ -1,6 +1,5 @@
-package com.test;
+package com.lambda;
 
-import javax.rmi.CORBA.Util;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

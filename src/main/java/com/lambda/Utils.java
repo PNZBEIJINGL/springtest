@@ -1,4 +1,4 @@
-package com.test;
+package com.lambda;
 
 import java.util.Collection;
 
