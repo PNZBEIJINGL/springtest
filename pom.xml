@@ -36,12 +36,33 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 生产级特性,  /info 基本信息 /metrics性能信息 /mappings影射信息 /trace 请求调用信息-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- 可以通过HEATOAS插件获取端点信息-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-hateoas</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>hal-browser</artifactId>
+        </dependency>
+
         <!-- springBoot对调试支持很好，修改之后可以实时生效，需要添加以下的配置 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
+
+
+
+
+
 
         <!-- 		<dependency> -->
         <!-- 			<groupId>demo.msa</groupId> -->
