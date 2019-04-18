@@ -1,5 +1,9 @@
 package com.lambda;
 
+import com.lambda.domain.Product;
+import com.lambda.domain.ProductInstance;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -7,10 +11,26 @@ import java.util.stream.Stream;
 public class LambdaTest {
 
     public static void main(String[] args) {
-        testReduce();
-        testCollect();
-        testMap();
-        testFilter1();
+        testNewObject();
+        //testReduce();
+        //testCollect();
+        //testMap();
+        //testFilter1();
+    }
+
+    private static void testNewObject(){
+        List<ProductInstance> list=new ArrayList<>();
+        ProductInstance a=new ProductInstance();
+        a.setProductId(1L);
+        list.add(a);
+
+       list.stream().map(productInstance -> {
+           Product p=new Product();
+           p.setId(productInstance.getProductId());
+           return p;
+       }).collect(Collectors.toList()).forEach(n->Utils.println("result="+n.getId()));
+
+
     }
 
     private static void testReduce() {
@@ -33,7 +53,7 @@ public class LambdaTest {
 
     private static void testMap() {
         //使用map做大小写转换
-        List<String> list = Stream.of("a", "b", "c").map(String -> String.toUpperCase()).collect(Collectors.toList());
+        List<String> list = Stream.of("a", "b", "c").map(String::toUpperCase).collect(Collectors.toList());
         Utils.println(list);
     }
 
