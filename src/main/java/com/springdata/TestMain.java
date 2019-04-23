@@ -6,7 +6,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 public class TestMain {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new FileSystemXmlApplicationContext(
-				"src/main/java/com/springdata/applicationContext.xml");
+				"src/main/java/com/springdata/application.xml");
 		UserDaoImpl userDAO = (UserDaoImpl) ctx.getBean("userDAO");
 		System.out.println("add user id=1001 code=1002");
 		User user = new User();
