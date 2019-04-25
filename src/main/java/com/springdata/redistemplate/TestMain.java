@@ -1,4 +1,4 @@
-package com.springdata;
+package com.springdata.redistemplate;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;

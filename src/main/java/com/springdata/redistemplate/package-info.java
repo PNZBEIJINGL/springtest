@@ -1,4 +1,4 @@
-package com.springdata;
+package com.springdata.redistemplate;
 
 /**
  *  JedisPoolConfig配置链接池

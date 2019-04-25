@@ -55,7 +55,7 @@
     <bean id="stringRedisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate"
           p:connection-factory-ref="jedisConnectionFactory" />
 
-    <bean id="userDAO" class="com.springdata.UserDaoImpl">
+    <bean id="userDAO" class="com.springdata.redistemplate.UserDaoImpl">
         <property name="redisTemplate" ref="stringRedisTemplate"/>
     </bean>
 
