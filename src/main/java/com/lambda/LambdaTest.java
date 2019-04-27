@@ -1,22 +1,47 @@
 package com.lambda;
 
+import com.lambda.domain.Artist;
 import com.lambda.domain.Product;
 import com.lambda.domain.ProductInstance;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class LambdaTest {
 
     public static void main(String[] args) {
-        testNewObject();
+        //testNewObject();
         //testReduce();
         //testCollect();
-        //testMap();
+        testMap();
         //testFilter1();
+        //testString();
     }
+
+    private static  void testString(){
+        List<Artist> artists = DataUtils.createArtistlist();
+
+        StringBuffer sbf=new StringBuffer("[");
+        for (Artist artis : artists) {
+            if(sbf.length()>1){
+                sbf.append(",");
+            }
+            sbf.append(artis.getName());
+        }
+        sbf.append("]");
+        Utils.println(sbf);
+
+        //Another method
+        //map 操作提取姓名，Collectors.joining 收集流中的值，分隔符|前缀|后缀
+        String result=artists.stream().map(Artist::getName).collect(Collectors.joining("|","[","]"));
+        Utils.println(result);
+
+    }
+
+
 
     private static void testNewObject(){
         List<ProductInstance> list=new ArrayList<>();
@@ -53,8 +78,15 @@ public class LambdaTest {
 
     private static void testMap() {
         //使用map做大小写转换
-        List<String> list = Stream.of("a", "b", "c").map(String::toUpperCase).collect(Collectors.toList());
-        Utils.println(list);
+        //map 使用String#toUpperCase 提取，然后使用collect搜集结果组装成
+        Set<String> set = Stream.of("a", "b", "c").map(String::toUpperCase).collect(Collectors.toSet());
+        Utils.println(set);
+
+
+        //map 使用Artist#getName 提取  ,然后使用collect收集结果组装成list
+        List<Artist> artistlist=DataUtils.createArtistlist();
+        List<String> result=artistlist.stream().map(Artist::getName).collect(Collectors.toList());
+        Utils.println(result);
     }
 
     private static void testCollect() {
