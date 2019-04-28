@@ -23,12 +23,12 @@ public class LambdaTest {
         //testString();
     }
 
-    private static  void testString(){
+    private static void testString() {
         List<Artist> artists = DataUtils.createArtistlist();
 
-        StringBuffer sbf=new StringBuffer("[");
+        StringBuffer sbf = new StringBuffer("[");
         for (Artist artis : artists) {
-            if(sbf.length()>1){
+            if (sbf.length() > 1) {
                 sbf.append(",");
             }
             sbf.append(artis.getName());
@@ -38,44 +38,42 @@ public class LambdaTest {
 
         //Another method
         //map 操作提取姓名，Collectors.joining 收集流中的值，分隔符|前缀|后缀
-        String result=artists.stream().map(Artist::getName).collect(Collectors.joining("|","[","]"));
+        String result = artists.stream().map(Artist::getName).collect(Collectors.joining("|", "[", "]"));
         Utils.println(result);
 
     }
 
 
-
-    private static void testNewObject(){
-        List<ProductInstance> list=new ArrayList<>();
-        ProductInstance a=new ProductInstance();
+    private static void testNewObject() {
+        List<ProductInstance> list = new ArrayList<>();
+        ProductInstance a = new ProductInstance();
         a.setProductId(1L);
         list.add(a);
 
-       list.stream().map(productInstance -> {
-           Product p=new Product();
-           p.setId(productInstance.getProductId());
-           return p;
-       }).collect(Collectors.toList()).forEach(n->Utils.println("result="+n.getId()));
+        list.stream().map(productInstance -> {
+            Product p = new Product();
+            p.setId(productInstance.getProductId());
+            return p;
+        }).collect(Collectors.toList()).forEach(n -> Utils.println("result=" + n.getId()));
 
 
     }
 
     private static void testReduce() {
-        int count=Stream.of(1,2,3).reduce(0,(acc,element)->acc+element);
+        int count = Stream.of(1, 2, 3).reduce(0, (acc, element) -> acc + element);
         Utils.println(count);
     }
 
 
-    private static void testFilter1(){
-        List<String> list=Stream.of("a","1abc","abc1").collect(Collectors.toList());
-        List<String> result=list.stream().filter(str->str.startsWith("a")).collect(Collectors.toList());
-        List<String> result2=list.stream().filter(str->str.equals("a")).collect(Collectors.toList());
+    private static void testFilter1() {
+        List<String> list = Stream.of("a", "1abc", "abc1").collect(Collectors.toList());
+        List<String> result = list.stream().filter(str -> str.startsWith("a")).collect(Collectors.toList());
+        List<String> result2 = list.stream().filter(str -> str.equals("a")).collect(Collectors.toList());
         Utils.println(result);
         System.out.print("===>");
         Utils.println(result2);
-        list.stream().filter(str->str.equals("abc1")).collect(Collectors.toList()).forEach((n)->System.out.print("|"+n+"|"));
+        list.stream().filter(str -> str.equals("abc1")).collect(Collectors.toList()).forEach((n) -> System.out.print("|" + n + "|"));
     }
-
 
 
     private static void testMap() {
@@ -86,14 +84,14 @@ public class LambdaTest {
 
 
         //map 使用Artist#getName 提取  ,然后使用collect收集结果组装成list
-        List<Artist> artistlist=DataUtils.createArtistlist();
-        List<String> result=artistlist.stream().map(Artist::getName).collect(Collectors.toList());
+        List<Artist> artistlist = DataUtils.createArtistlist();
+        List<String> result = artistlist.stream().map(Artist::getName).collect(Collectors.toList());
         Utils.println(result);
     }
 
     private static void testCollect() {
         //将Stream 生成一个列表
-        List<String> list = Stream.of("a","b","c").collect(Collectors.toList());
+        List<String> list = Stream.of("a", "b", "c").collect(Collectors.toList());
         System.out.println(list.size());
         Utils.println(list);
     }
