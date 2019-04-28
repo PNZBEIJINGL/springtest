@@ -1,4 +1,4 @@
-package com.lambda;
+package com.lambda.util;
 
 import java.util.Collection;
 
