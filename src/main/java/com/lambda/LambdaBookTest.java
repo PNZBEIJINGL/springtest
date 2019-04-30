@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class LambdaTest {
+public class LambdaBookTest {
 
     public static void main(String[] args) {
         //testNewObject();
