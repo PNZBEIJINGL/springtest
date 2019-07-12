@@ -16,7 +16,7 @@ public class LambdaBookTest {
 
     public static void main(String[] args) {
         //testNewObject();
-        //testReduce();
+        testReduce();
         //testCollect();
         testMap();
         //testFilter1();
