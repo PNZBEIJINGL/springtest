@@ -9,10 +9,10 @@ public class DiscountDTOTest {
     public static void main(String[] args) {
 
         //过滤
-        //testGetSubList();
+        testGetSubList();
 
         //计数
-        //testSum();
+        testSum();
         DiscountDTO d1 = new DiscountDTO();
         d1.setId(1L);
         d1.setName("1年优惠20");
