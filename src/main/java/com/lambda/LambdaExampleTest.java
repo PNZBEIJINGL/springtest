@@ -138,7 +138,6 @@ public class LambdaExampleTest {
         }
         System.out.println();
 
-
         System.out.print("<To Lambda>");
         names.stream().filter(name -> (condition.test(name))).forEach(System.out::print);
         System.out.println();
