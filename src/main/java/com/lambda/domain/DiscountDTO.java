@@ -1,6 +1,6 @@
 package com.lambda.domain;
 
-public class DiscountDTO {
+public class DiscountDTO extends AbstractDTO {
 
     private String code;
     private String name;
@@ -20,4 +20,5 @@ public class DiscountDTO {
     public void setName(String name) {
         this.name = name;
     }
+
 }
