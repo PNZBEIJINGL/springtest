@@ -130,14 +130,13 @@ public class LambdaExampleTest {
 
     //Java 8也添加了一个包，叫做 java.util.function。它包含了很多类，用来支持Java的函数式编程。其中一个便是Predicate
     public static void filter(List<String> names, Predicate<String> condition) {
-        /*
+
         for (String name : names) {
             if (condition.test(name)) {
                 System.out.print(name + " ");
             }
         }
         System.out.println();
-        */
 
         System.out.print("<To Lambda>");
         names.stream().filter(name -> (condition.test(name))).forEach(System.out::print);
